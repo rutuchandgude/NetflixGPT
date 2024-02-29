@@ -1,0 +1,196 @@
+# Netflix GPT
+
+- Create React App
+- Configured Tailwindcss
+- Sign In 
+- Sign Up 
+
+
+#Features
+
+- Login/Sign Up
+   - Sign In/ Sign up Form
+   - redirect to Browse Page
+
+- Brouse(after authentication)
+   - Header
+   - Main Movie 
+      - Tailer in Background
+      - Title & Description
+      - MovieSuggestions
+          - MovieLists * N
+
+- NetflixGPT
+  - Search Bar
+  - Movie Suggestions
+
+Extesion - ES7+ React/Redux/React
+(rafce will give component snippet)
+
+- create components Body.js , Browse.js, Header.js , Login.js
+- Setup routing :
+  > npm i -D react-router-dom
+
+-Build Sign In Form 
+-Build Sign Up Form
+- Form validation
+
+- If their is large form having many feilds and validations then use 
+  formik library.
+
+  - useRef Hook :
+   - useRef is a React Hook that lets you reference a value that's not needed for rendering.
+
+   - const ref = useRef(initialValue)
+
+  - regex for email validation
+
+  //--
+
+  useRef - used to reference field or tag like input or button
+  useState - using for store error msg
+
+Login.js: (Form Validation)
+
+import { useState, useRef } from "react";
+import Header from "./Header";
+import {checkValidData} from "../utils/validate";
+
+const Login = () => {
+  const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const handleButtonClick = () =>{
+    //Validate the form data
+
+    console.log(email.current.value);
+    console.log(password.current.value);
+
+    const message = checkValidData(email.current.value, password.current.value);
+
+    console.log(message);
+    setErrorMessage(message);
+
+
+  };
+
+  const toggleSignInForm = () => {
+    setIsSignInForm(!isSignInForm);
+  };
+
+  return (
+    <div>
+      <Header />
+      <div className="absolute">
+        <img
+          src="https://assets.nflxext.com/ffe/siteui/vlv3/2e07bc25-8b8f-4531-8e1f-7e5e33938793/e4b3c14a-684b-4fc4-b14f-2b486a4e9f4e/IN-en-20240219-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          alt="logo"
+        />
+      </div>
+      <form onSubmit={(e) => e.preventDefault() } className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
+        <h1 className="font-bold text-3xl py-4">
+          {isSignInForm ? "Sign In" : "Sign Up"}
+        </h1>
+        {!isSignInForm && (
+          <input
+            type="text"
+            placeholder="Full name"
+            className="p-4 my-4 w-full bg-gray-700"
+          />
+        )}
+        <input
+        ref={email}
+          type="text"
+          placeholder="Email Address"
+          className="p-4 my-4 w-full bg-gray-700"
+        />
+        <input
+        ref = {password}
+          type="password"
+          placeholder="Password"
+          className="p-4 my-4 w-full bg-gray-700"
+        />
+        <p className="text-red-500 font bold text-lg py-2">{errorMessage}</p>
+        <button className="p-4 my-6 bg-red-700 w-full rounded-lg" onClick={handleButtonClick}>
+          {isSignInForm ? "Sign In" : "Sign Up"}
+        </button>
+        <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
+          {isSignInForm
+            ? "New to Netflix? Sign Up Now"
+            : "Already registered? Sign In Now."}
+        </p>
+      </form>
+    </div>
+  );
+};
+export default Login;
+
+ - To build store
+  - Redux-toolkit library & react-redux toolkit:
+  > npm i -D @reduxjs/toolkit
+  > npm i react-redux
+
+  - created appStore.js in utils
+  - created userSlice.js in utils
+
+  - added userSlice into appStore
+  - providing store in App.js
+
+  - Redux toolkit extesion
+
+  - Authentication : (using google firebase)
+   -create new project NetflixGPT
+   - Enable Google Analytics for this project.
+   -Default account for firebase.
+   - create a web app </>
+   - Also set up Firebase Hosting for this app.
+   - Register app
+   - Use npm , (install firebase in app)
+    > npm install firebase
+    - created firebase.js in utils and copy pest the firebase code in that file.
+
+    - Enable Authentication in our App - 
+       - project overview
+         - > Authentication ->get started -> Sign In method -> Email/Password ->save
+
+        -> Error updating Email/Password 
+          Resolved -> disable CORS extention then try to enable.
+
+      > npm install -g firebase-tools
+      > firebase login / firebase.cmd login
+      > firebase init
+
+    - firebase init isnt working on vscode 
+     -> use command prompt 
+
+
+   > firebase init 
+>( ) Hosting: Configure files for Firebase Hosting and (optionally) set up GitHub Action deploys
+
+use space bar to select
+
+> Use an existing project
+> netflixgpt-f0c54 (NetflixGPT)
+? What do you want to use as your public directory? build
+? Configure as a single-page app (rewrite all urls to /index.html)? No
+? Set up automatic builds and deploys with GitHub? No
+
+=> +  Firebase initialization complete!
+
+Error: Failed to make request to https://www.gstatic.com/firebasejs/releases.json
+=> >firebase init --debug
+
+will create firebase.json in our app.
+
+-create build
+> npm run build
+
+-deploy build
+> firebase deploy
+
+- Here is URL : https://netflixgpt-f0c54.web.app
+
+
