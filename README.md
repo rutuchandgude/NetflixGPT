@@ -14,6 +14,7 @@
 - Implement Sign In user Api
 - Created Redux Store with userSlice
 - 
+- 
 
 #Features
 
@@ -32,3 +33,4 @@
 - NetflixGPT
   - Search Bar
   - Movie Suggestions
+

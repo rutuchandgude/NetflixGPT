@@ -129,18 +129,6 @@ const Login = () => {
 };
 export default Login;
 
- - To build store
-  - Redux-toolkit library & react-redux toolkit:
-  > npm i -D @reduxjs/toolkit
-  > npm i react-redux
-
-  - created appStore.js in utils
-  - created userSlice.js in utils
-
-  - added userSlice into appStore
-  - providing store in App.js
-
-  - Redux toolkit extesion
 
   - Authentication : (using google firebase)
    -create new project NetflixGPT
@@ -231,5 +219,26 @@ signInWithEmailAndPassword(auth, email, password)
     const errorCode = error.code;
     const errorMessage = error.message;
   });
+
+
+ - To build store
+  - Redux-toolkit library & react-redux toolkit:
+  > npm i -D @reduxjs/toolkit
+  > npm i react-redux
+
+  - created appStore.js in utils
+  - created userSlice.js in utils
+
+  - added userSlice into appStore
+  - providing store in App.js
+
+  - Redux toolkit extesion
+
+  * Firebase Documentation > Manage User
+   onAuthStateChanged - 
+    whenever user sign In , Sign Up , Authentication Change  use this onAuthStateChanged API.
+
+   - useDispatch and useNavigate Hook
+
 
 
