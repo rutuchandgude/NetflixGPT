@@ -290,4 +290,38 @@ In Header.js - show ing profile photo only when user is Signed In. Adding user &
 
  
  TMDB - Movie Database
- 
+TMDB API 
+
+//------Ep.15-NetflixGPT-Building The Core-----
+
+ - Fetch from TMDB Movies
+
+Bug Fixing  : If the user is not logged in Redirect /browser to Login Page and vise-versa.
+- If user is not logged is still we are able to access ./browse page , this shouldnt happened. If we are trying to go ./browse page without sign In , it should redirect to Login.js Page.
+Lets Fix it.
+=> onAuthStateChanged logic moved to header 
+ - because dispatch is used only in approuter and their child , either gives error , so we moved code to Header.js .
+
+- Unsubscribeed to the onAuthStateChanged callback
+ //Unsubscribe when component unmounts - In Header.js
+
+ - Add hardcoded values to the constats file.
+ -created constats.js in utils folder to keep urls
+
+ - Create TMDB Account > Log In > Edit Profile  > API  
+           -API Key -d32bc7b31000d12d2b0d35ad3841f448
+           -API Read Access Token - eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMzJiYzdiMzEwMDBkMTJkMmIwZDM1YWQzODQxZjQ0OCIsInN1YiI6IjY1ZTZmZmNmZjg1OTU4MDE3YjliMmMxMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7tfMczNQM5Xfj6fBkZq21UtGkQH4hAL5eT3_jijokXs
+
+- TMDB Documentation -> API reference -> MOVIE LISTS -> Select Javascript in Language.
+
+
+Why API calls two times ?
+=> This basically happens because of strict mode (<React.StrictMode></React.StrictMode>) in index.js
+- It happens because react does extra rendering of your components to check for some inconsistancy between your calls . It only happens at localhost . This is for good.
+
+New Movies List API - https://api.themoviedb.org/3/movie/now_playing?page=1
+
+API call in Browser.js 
+
+//----------
+
