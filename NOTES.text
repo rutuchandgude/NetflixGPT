@@ -240,5 +240,54 @@ signInWithEmailAndPassword(auth, email, password)
 
    - useDispatch and useNavigate Hook
 
+//-----
+- Add header in Browse page
+
+Sign Out Authentication :
+  Firebase Doc - Authentication > web> Password Authentication > Sign Out API
 
 
+  signOut(auth).then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
+
+
+=> Authentication >Update a user's profile
+
+updateProfile(auth.currentUser, {
+  displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+}).then(() => {
+  // Profile updated!
+  // ...
+}).catch((error) => {
+  // An error occurred
+  // ...
+});
+
+
+In Header.js - show ing profile photo only when user is Signed In. Adding user && condition. 
+
+{user && (<div className="flex p-2">
+        <img
+          className="w-12 h-12"
+          alt="usericon"
+          src={user?.photoURL}
+        />
+        <button onClick={handleSignOut} className="font-bold text-white">
+          (Sign Out)
+        </button>
+      </div>)}
+
+- Fixing bug :
+ In redux devetool extension - displayName was null after sign in & was getting value after refresh , Lets fix that bug .
+  => by dispatching in Login.js
+
+   const {uid, email, displayName, photoURL } = auth.currentUser;
+            dispatch(addUser({uid:uid, email:email,displayName:displayName, photoURL:photoURL}));
+            navigate("/browse");
+
+ 
+ TMDB - Movie Database
+ 
