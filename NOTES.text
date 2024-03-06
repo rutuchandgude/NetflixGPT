@@ -326,3 +326,37 @@ API call in Browser.js
 //----------
 
 - create moviesSlice.js
+
+ /*
+        MainContainer
+         -VideoBackground
+         - VideoTitle
+        SecondaryContainer
+         - MovieList * n
+         - cards * n
+ */
+  
+  -hooks->
+  -useNowPlayingMovies.js
+
+  - components ->
+  - created MainContainer.js 
+  - created SecondaryContainer.js 
+  - created VideoBackground.js 
+
+Error : Cannot read properties of null ('0')
+=>     if(movies === null) return;
+               OR 
+        if(!movies) return;
+
+   Earlyreturn , in MainContainer.js
+
+-VideoTitle.js
+-VideoBackground.js (1:30 )
+   -> TMDB API ->MOVIES ->Videos 
+
+   -> copy pest key to youtube vdo -> click on share -> copy Embeded code and put it to vedeobackground
+    - It will show youtube vdo on our page
+
+    - Creating custom hook for Trailer vdo 
+     - useMovieTrailer.js  hook (custom hook always start as use)
