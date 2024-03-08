@@ -360,3 +360,43 @@ Error : Cannot read properties of null ('0')
 
     - Creating custom hook for Trailer vdo 
      - useMovieTrailer.js  hook (custom hook always start as use)
+
+    -  Building VDO Background
+
+  //----
+   className="w-screen aspect-video" 
+    - To make vdo fullscreen
+
+    React Icons - 
+    >npm i react-icons
+
+    - To autoplay Background VDO - ?autoplay=1&mute=1
+
+    - SecondaryContainer.js component
+    -Creating Movie Suggestions List
+     /*
+        MovieList - Popular
+        MovieCard*n
+        MovieList - Now Playing
+        MovieList - Trending
+        MovieList - Horror
+        */
+
+      - MovieCard.js component
+      -MovieList.js component
+
+      - To make posters - 
+      TMDB ddoc -> Guides -> IMAGES ->Basics
+       - > How to build an image URL
+       (https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg)
+
+       - our poster_url added to this URL.
+
+  
+  - Showing Popular Movies List on Browse Page 
+  - Created Now playing ,Popular,Trending , Upcoming Movies List.
+   -useNowPlayingMovies.js
+   -usePopularMovies.js
+   -useTopRatedMovies.js
+   -useUpcomingMovies.js
+   

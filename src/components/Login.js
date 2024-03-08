@@ -46,7 +46,7 @@ const Login = () => {
           }).catch((error) => {
             setErrorMessage(error.message);
           });
-          console.log(user);
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
