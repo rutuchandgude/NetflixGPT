@@ -400,3 +400,14 @@ Error : Cannot read properties of null ('0')
    -useTopRatedMovies.js
    -useUpcomingMovies.js
    
+//----------Ep-16 -NetflixGPT-Wrapping Up--------------------------
+   GPT :
+   -Building GPT Search Page -
+    - GptMovieSuggestions.js
+    - GptSearch.js
+    - GptSearchBar.js 
+    - gptSlice.js in utils
+
+  - Building Multi Language Pages
+    - 
+   
