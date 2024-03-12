@@ -408,6 +408,8 @@ Error : Cannot read properties of null ('0')
     - GptSearchBar.js 
     - gptSlice.js in utils
 
+ Multi-language Feature in our App
   - Building Multi Language Pages
-    - 
-   
+    - languageConstatnts.js in utils
+    - configSlice.js
+    
