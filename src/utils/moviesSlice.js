@@ -4,7 +4,11 @@ import { createSlice } from "@reduxjs/toolkit";
         name:"movies",
         initialState:{
             nowPlayingMovies : null,
+            popularMovies : null,
+            topRatedMovies : null,
+            upcomingMovies : null,
         },
+
         reducers : {
             addNowPlayingMovies : (state,action) => {
                 state.nowPlayingMovies = action.payload;

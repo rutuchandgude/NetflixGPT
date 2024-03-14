@@ -253,7 +253,6 @@ Sign Out Authentication :
   // An error happened.
 });
 
-
 => Authentication >Update a user's profile
 
 updateProfile(auth.currentUser, {
@@ -412,4 +411,78 @@ Error : Cannot read properties of null ('0')
   - Building Multi Language Pages
     - languageConstatnts.js in utils
     - configSlice.js
+
+  - Adding GPT Feature to our App:
+    - Sign Up & Login to https://platform.openai.com
+   =>rutuchandgude1@gmail.com
+    pass: Rutuja@12345
+
+    -Find API Key 
+    -> Create new secret key -> Name : NetflixGPTProject ->openai key :
+    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
+
+    - npm openai library
+     - This will give you helper function that will help you make API call directly.
+    -This library provides convenient access to the OpenAI REST API from TypeScript or JavaScript.
+
+    - Installation :
+    > npm install --save openai
+
+   Error : It looks like you're running in a browser-like environment.
+   => in utils -> openai.js -> 
+   new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
+
+
+//----------------
+TMDB API - 
+API Reference -> - Search -> Movie 
+ ->
+  query string required -> Andaz apna apna
+  ->click on Try it -> It will give response.
+
+- GptSearchBar.js component
+  console.log(gptResults.choices?.[0]?.message?.content);
+
+   // "Andaz Apna Apna, Chupke Chupke, Padosan, Hera Pheri, Jaane Bhi Do Yaaro"
+   //[ "Andaz Apna Apna, Chupke Chupke, Padosan, Hera Pheri, Jaane Bhi Do Yaaro"]
+        //For each movie I will search TMDB API
+
+
+//----------
+
+Building GPT Movie Suggestions UI 
+  - GptMovieSuggestions..js component
+
+Securing our API keys - 
+ - we have set key as like this in openai.js 
+  dangerouslyAllowBrowser:true,
+
+-> Now we will set it as securely
+  - create .env  file in app
+   - keep secreat information or keys in .env
+
+ - take it from constants and put it to .env file  as :
+ REACT_APP_OPENAI_KEY = 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
+ - write it in constatnt file as :
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+
+- Understanding Memorization of data in our appStore
+ -     const trailerVideo = useSelector(store => store.movies.trailerVideo)
+
+    useEffect(() => {
+      !trailerVideo && getMovieVideos();
+      getMovieVideos();
+    }, []);
+
+   - This will never make API call again if data or vdo is already present.
+
+  -
     
+
+- Do the same to TMDB key
+ 
+
+
+
+
+
