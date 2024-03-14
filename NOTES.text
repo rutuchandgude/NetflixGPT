@@ -465,6 +465,8 @@ Securing our API keys -
  REACT_APP_OPENAI_KEY = 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
  - write it in constatnt file as :
 export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+ - Do the same to TMDB key
+ 
 
 - Understanding Memorization of data in our appStore
  -     const trailerVideo = useSelector(store => store.movies.trailerVideo)
@@ -475,12 +477,17 @@ export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
     }, []);
 
    - This will never make API call again if data or vdo is already present.
+   - used for useNowPlayingMovies.js
+              usePopularMovies.js
+              useTopRatedMovies.js
+              useUpcomingMovies.js
 
-  -
-    
+- OpenAI AI Usage Bill & suggestions :
+  
+  
+   - error: failed to push some refs to 'https://github.com/rutuchandgude/NetflixGPT.git'  
 
-- Do the same to TMDB key
- 
+
 
 
 
